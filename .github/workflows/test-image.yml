@@ -25,6 +25,6 @@ jobs:
       uses: redhat-actions/buildah-build@v2
       with:
         image: foaas-slack
-        archs: $ {{ matrix.arch }}
+        archs: ${{ matrix.arch }}
         dockerfiles: |
           ./Dockerfile
