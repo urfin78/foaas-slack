@@ -23,6 +23,6 @@ jobs:
       uses: redhat-actions/buildah-build@v2
       with:
         image: foaas-slack
-        archs: amd64,arm64v8,arm32v7,i386
+        archs: amd64,arm64v8,armv7,386
         dockerfiles: |
           ./Dockerfile
