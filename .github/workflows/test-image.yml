@@ -27,6 +27,6 @@ jobs:
       with:
         image: foaas-slack
         archs: ${{ matrix.arch }}
-        tags: 
+        tags: latest-${{ matrix.arch }}
         dockerfiles: |
           ./Dockerfile
