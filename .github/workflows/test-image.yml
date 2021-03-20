@@ -1,0 +1,16 @@
+name: Docker image build
+
+on: 
+  pull_request:
+    branches:
+      - master
+  push:
+    branches-ignore:
+      - 'master'
+
+jobs:
+  test:
+    name: Test Image
+    runs:
+    using: 'docker'
+    image: 'Dockerfile'
