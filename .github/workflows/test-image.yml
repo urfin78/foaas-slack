@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        arch: [amd64, arm64, arm, 386]
+        arch: [amd64, arm64, armv7, 386]
     steps:
     - uses: actions/checkout@v2
 
@@ -22,7 +22,7 @@ jobs:
       run: sudo podman run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
     - name: Buildah Action
-      uses: redhat-actions/buildah-build@v2
+      uses: redhat-actions/buildah-build@v2.2.1
       with:
         image: foaas-slack
         archs: ${{ matrix.arch }}
