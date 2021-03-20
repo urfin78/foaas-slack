@@ -10,13 +10,15 @@ on:
 
 jobs:
   build:
-    name: Build Image
+    name: Build image
     runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v2.3.4
 
-    - name: Run Image
-      runs:
-      using: 'docker'
-      image: 'Dockerfile'
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Buildah Action
+      uses: redhat-actions/buildah-build@v2
+      with:
+        image: foaas-slack
+        dockerfiles: |
+          ./Dockerfile
