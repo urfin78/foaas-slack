@@ -13,8 +13,9 @@ jobs:
     name: Build image
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        arch: [amd64, arm64, 386]
+        arch: [amd64, arm64, arm, 386]
     steps:
     - uses: actions/checkout@v2
 
@@ -26,5 +27,6 @@ jobs:
       with:
         image: foaas-slack
         archs: ${{ matrix.arch }}
+        tags: 
         dockerfiles: |
           ./Dockerfile
